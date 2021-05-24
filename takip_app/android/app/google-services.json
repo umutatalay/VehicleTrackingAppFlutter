@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1000840161976",
+    "project_id": "vehicletrackingflutter",
+    "storage_bucket": "vehicletrackingflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000840161976:android:992fc3833cc24ce9e2224d",
+        "android_client_info": {
+          "package_name": "com.umutatalay.takipapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1000840161976-7hsklk23q2emt66v78rt8i4ccg8hv77e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAob4ScOyrDcHnwN7yNqs5ynUlHN2DiSgs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1000840161976-7hsklk23q2emt66v78rt8i4ccg8hv77e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
