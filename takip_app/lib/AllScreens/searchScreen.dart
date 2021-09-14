@@ -54,7 +54,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           child: Icon(Icons.arrow_back)),
                       Center(
                        child:  Text(
-                         "Set Drop Off",style: TextStyle(fontSize: 18.0,fontFamily:"Brand-Bold"  ),
+                         "Yolculuk Süresi Hesaplayıcı",style: TextStyle(fontSize: 18.0,fontFamily:"Brand-Bold"  ),
                        ),
                       ),
                     ],
@@ -118,7 +118,7 @@ class _SearchScreenState extends State<SearchScreen> {
                               },
                               controller: dropOffTextEditingController,
                               decoration: InputDecoration(
-                                hintText: "where to",
+                                hintText: "Gidilecek konum",
                                 fillColor: Colors.grey[400],
                                 filled: true,
                                 border:InputBorder.none,
@@ -223,7 +223,7 @@ class PredictionTile extends StatelessWidget {
   void getPlaceAddressDetails(String placeId, context) async
   {
     showDialog(context: context,
-    builder: (BuildContext context)=> ProgressDialog(message: "Setting Dropoff bekle",));
+    builder: (BuildContext context)=> ProgressDialog(message: "Yolculuk hesaplanıyor. Lütfen Bekleyin",));
 
     String placeDetailsUrl="https://maps.googleapis.com/maps/api/place/details/json?place_id=$placeId&key=$mapkey";
     var res= await RequestAssistant.getRequest(placeDetailsUrl);
@@ -244,7 +244,8 @@ class PredictionTile extends StatelessWidget {
       Provider.of<AppData>(context,listen: false).updateDropOffLocationAddress(address);
       print("This is drop off location::");
       print(address.placeName);
-
+      print(address.placeFormattedAddress);
+      print(address.placeID);
       Navigator.pop(context, "obtainDirection");
     }
   }

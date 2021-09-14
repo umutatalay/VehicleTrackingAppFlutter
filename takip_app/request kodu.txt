@@ -1,0 +1,31 @@
+Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20.0),
+                          child: RaisedButton(
+                            onPressed: () {
+                              displayRequestRideContainer();
+                              print("tiklandi");
+                            },
+                            color: Theme.of(context).accentColor,
+                            child: Padding(
+                              padding: EdgeInsets.all(17.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Request",
+                                    style: TextStyle(
+                                        fontSize: 20.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white),
+                                  ),
+                                  Icon(
+                                    FontAwesomeIcons.taxi,
+                                    color: Colors.white,
+                                    size: 26.0,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),

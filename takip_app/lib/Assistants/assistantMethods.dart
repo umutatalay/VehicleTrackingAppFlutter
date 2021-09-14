@@ -1,3 +1,7 @@
+import 'dart:math';
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
@@ -5,6 +9,7 @@ import 'package:takip_app/Assistants/requestAssistant.dart';
 import 'package:takip_app/ConfigMaps.dart';
 import 'package:takip_app/DataHandler/appData.dart';
 import 'package:takip_app/Models/address.dart';
+import 'package:takip_app/Models/allUsers.dart';
 import 'package:takip_app/Models/directDetails.dart';
 
 class AssistantMethods
@@ -56,5 +61,33 @@ class AssistantMethods
     return directionDetails;
 
   }
+  static int calculateFares(DirectionDetails directionDetails){
 
+    // ücret
+    double timeTraveledFare = (directionDetails.durationValue / 60)*0.2;
+    double distanceTraveledFare = (directionDetails.durationValue / 1000)*0.2;
+    double totalFareAmount =distanceTraveledFare+timeTraveledFare;
+
+    return totalFareAmount.truncate();
+  }
+
+
+  static void getCurrentOnlineUserInfo() async{
+    firebaseUser = await FirebaseAuth.instance.currentUser;
+    String UserId=firebaseUser.uid;
+    DatabaseReference reference= FirebaseDatabase.instance.reference().child("users").child(UserId);
+    
+    reference.once().then((DataSnapshot dataSnapshot) {
+      if(dataSnapshot.value!=null){
+        userCurrentInfo=Users.fromSmapshot(dataSnapshot);
+      }
+    });
+  }
+
+
+  static double createRandomNumber(int num){
+    var random = Random();
+    int radNumber = random.nextInt(num);
+    return radNumber.toDouble();
+  }
 }

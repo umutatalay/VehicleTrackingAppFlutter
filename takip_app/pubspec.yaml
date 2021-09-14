@@ -37,8 +37,9 @@ dependencies:
   http: ^0.12.2
   provider: ^4.3.2+2
   flutter_polyline_points: ^0.2.4
-
-
+  font_awesome_flutter: ^8.10.0
+  animated_text_kit: ^2.5.4
+  flutter_geofire: ^1.0.3
 
 
 dev_dependencies:
@@ -68,6 +69,7 @@ flutter:
      - images/redmarker.png
      - images/taxi.png
      - images/user_icon.png
+     - images/bus.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
